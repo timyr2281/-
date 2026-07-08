@@ -57,36 +57,36 @@ const LW = ["Т1", "Т2", "Т3", "Т4"];
 // light-theme accent tokens
 const ACCENTS = {
   amber: {
-    text: "text-amber-600",
-    barSel: "bg-gradient-to-t from-amber-500 to-amber-300",
-    barDim: "bg-amber-200",
-    soft: "bg-amber-100",
+    text: "text-orange-600",
+    barSel: "bg-gradient-to-t from-orange-500 to-orange-300",
+    barDim: "bg-orange-200",
+    soft: "bg-orange-100",
   },
   emerald: {
-    text: "text-emerald-600",
-    barSel: "bg-gradient-to-t from-emerald-500 to-emerald-300",
-    barDim: "bg-emerald-200",
-    soft: "bg-emerald-100",
+    text: "text-orange-600",
+    barSel: "bg-gradient-to-t from-orange-500 to-orange-300",
+    barDim: "bg-orange-200",
+    soft: "bg-orange-100",
   },
   rose: {
-    text: "text-rose-600",
-    barSel: "bg-gradient-to-t from-rose-500 to-rose-300",
-    barDim: "bg-rose-200",
-    soft: "bg-rose-100",
+    text: "text-[#7c4a21]",
+    barSel: "bg-gradient-to-t from-[#9a6634] to-[#cba883]",
+    barDim: "bg-[#e2cdb2]",
+    soft: "bg-[#f0e4d5]",
   },
   slate: {
-    text: "text-slate-700",
-    barSel: "bg-gradient-to-t from-slate-600 to-slate-400",
-    barDim: "bg-slate-200",
-    soft: "bg-slate-100",
+    text: "text-stone-700",
+    barSel: "bg-gradient-to-t from-stone-600 to-stone-400",
+    barDim: "bg-stone-200",
+    soft: "bg-stone-100",
   },
 };
 
 const BREAK_COLORS = {
-  amber: "bg-amber-500",
-  emerald: "bg-emerald-500",
-  slate: "bg-slate-600",
-  rose: "bg-rose-500",
+  amber: "bg-orange-500",
+  emerald: "bg-orange-500",
+  slate: "bg-stone-600",
+  rose: "bg-[#9a6634]",
   sky: "bg-sky-500",
   stone: "bg-stone-300",
 };
@@ -467,7 +467,7 @@ function ProgressBar({ value, danger }) {
     <div className="h-2 w-full overflow-hidden rounded-full bg-stone-200">
       <div
         className={`h-full rounded-full transition-all duration-700 ${
-          danger ? "bg-gradient-to-r from-rose-500 to-rose-400" : "bg-gradient-to-r from-amber-500 to-amber-400"
+          danger ? "bg-gradient-to-r from-[#9a6634] to-[#b07e4e]" : "bg-gradient-to-r from-orange-500 to-orange-400"
         }`}
         style={{ width: `${value}%` }}
       />
@@ -581,7 +581,7 @@ function DetailSheet({ detail, onClose }) {
       />
       <div
         className={`relative max-h-[88%] overflow-y-auto rounded-t-[2rem] border-t border-stone-200 bg-stone-50 pb-6 shadow-2xl transition-transform duration-300 ease-out ${
-          shown ? "translate-y-0" : "translate-y-full"
+          shown ? "transtone-y-0" : "transtone-y-full"
         }`}
       >
         <div className="sticky top-0 z-10 flex justify-center bg-stone-50 pt-3">
@@ -613,7 +613,7 @@ function DetailSheet({ detail, onClose }) {
               {deltaPct != null && (
                 <div
                   className={`mb-1.5 flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium ${
-                    up ? "bg-emerald-100 text-emerald-700" : "bg-rose-100 text-rose-700"
+                    up ? "bg-orange-100 text-orange-700" : "bg-[#f0e4d5] text-[#623915]"
                   }`}
                 >
                   {rising ? <ArrowUpRight className="h-3.5 w-3.5" /> : <ArrowDownRight className="h-3.5 w-3.5" />}
@@ -632,7 +632,7 @@ function DetailSheet({ detail, onClose }) {
                   key={k}
                   onClick={() => setTf(k)}
                   className={`flex-1 rounded-xl px-3 py-1.5 text-[12px] font-medium transition-all ${
-                    tf === k ? "bg-stone-900 text-white" : "bg-white text-stone-500 hover:bg-stone-100"
+                    tf === k ? "bg-[#4d2b0f] text-white" : "bg-white text-stone-500 hover:bg-stone-100"
                   }`}
                 >
                   {k}
@@ -657,7 +657,7 @@ function DetailSheet({ detail, onClose }) {
           {best && worst && (
             <div className="mt-3 grid grid-cols-3 gap-2">
               <div className="rounded-xl border border-stone-200 bg-white p-2.5 text-center">
-                <div className="flex items-center justify-center gap-1 text-[10px] text-emerald-600">
+                <div className="flex items-center justify-center gap-1 text-[10px] text-orange-600">
                   <Trophy className="h-3 w-3" /> Найкращий
                 </div>
                 <div className="mt-1 text-[13px] font-semibold text-stone-900">{best.label}</div>
@@ -669,7 +669,7 @@ function DetailSheet({ detail, onClose }) {
                 <div className="text-[9px] text-stone-500">за період</div>
               </div>
               <div className="rounded-xl border border-stone-200 bg-white p-2.5 text-center">
-                <div className="flex items-center justify-center gap-1 text-[10px] text-rose-600">
+                <div className="flex items-center justify-center gap-1 text-[10px] text-[#7c4a21]">
                   <TrendingDown className="h-3 w-3" /> Найслабший
                 </div>
                 <div className="mt-1 text-[13px] font-semibold text-stone-900">{worst.label}</div>
@@ -685,7 +685,7 @@ function DetailSheet({ detail, onClose }) {
                   <div className="text-[10px] text-stone-500">{st.label}</div>
                   <div
                     className={`mt-1 text-[13px] font-semibold ${
-                      st.tone === "good" ? "text-emerald-600" : st.tone === "warn" ? "text-rose-600" : "text-stone-900"
+                      st.tone === "good" ? "text-orange-600" : st.tone === "warn" ? "text-[#7c4a21]" : "text-stone-900"
                     }`}
                   >
                     {st.value}
@@ -707,12 +707,12 @@ function DetailSheet({ detail, onClose }) {
           {detail.insight && (
             <div
               className={`mt-4 rounded-2xl border p-4 ${
-                detail.insight.tone === "good" ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"
+                detail.insight.tone === "good" ? "border-orange-200 bg-orange-50" : "border-[#e2cdb2] bg-[#f7f1ea]"
               }`}
             >
               <div
                 className={`flex items-center gap-2 text-[12px] font-semibold ${
-                  detail.insight.tone === "good" ? "text-emerald-700" : "text-rose-700"
+                  detail.insight.tone === "good" ? "text-orange-700" : "text-[#623915]"
                 }`}
               >
                 <Sparkles className="h-4 w-4" /> {detail.insight.title}
@@ -742,7 +742,7 @@ function KpiMini({ icon: Icon, label, value, sub, subTone = "muted", accent = "t
       <div className={`mt-2 text-2xl font-semibold tracking-tight ${accent}`}>{value}</div>
       <div
         className={`mt-1 text-[11px] ${
-          subTone === "good" ? "text-emerald-600" : subTone === "warn" ? "text-rose-600" : "text-stone-500"
+          subTone === "good" ? "text-orange-600" : subTone === "warn" ? "text-[#7c4a21]" : "text-stone-500"
         }`}
       >
         {sub}
@@ -762,16 +762,16 @@ function OverviewTab({ onOpen }) {
       </div>
 
       {/* Occupancy hero */}
-      <Card onClick={() => onOpen(METRICS.occupancy)} className="border-amber-200 bg-amber-50">
+      <Card onClick={() => onOpen(METRICS.occupancy)} className="border-orange-200 bg-orange-50">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-wide text-amber-700/70">
+          <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-wide text-orange-700/70">
             <Armchair className="h-3.5 w-3.5" /> Завантаженість крісел
           </div>
           <span className="text-[10px] text-stone-500">3 крісла · зараз 2 зайнято</span>
         </div>
         <div className="mt-1 flex items-end gap-3">
-          <div className="text-5xl font-bold tracking-tighter text-amber-600">{occupancy}%</div>
-          <div className="mb-2 flex items-center gap-1 text-[11px] text-emerald-600">
+          <div className="text-5xl font-bold tracking-tighter text-orange-600">{occupancy}%</div>
+          <div className="mb-2 flex items-center gap-1 text-[11px] text-orange-600">
             <TrendingUp className="h-3.5 w-3.5" /> +8% до вчора
           </div>
         </div>
@@ -785,38 +785,24 @@ function OverviewTab({ onOpen }) {
       </Card>
 
       <div className="grid grid-cols-2 gap-3">
-        <KpiMini icon={UserCheck} label="Повторні візити" value="65%" sub="46% — запис на касі" subTone="good" accent="text-emerald-600" onClick={() => onOpen(METRICS.rebooking)} />
+        <KpiMini icon={UserCheck} label="Повторні візити" value="65%" sub="46% — запис на касі" subTone="good" accent="text-orange-600" onClick={() => onOpen(METRICS.rebooking)} />
         <KpiMini icon={Receipt} label="Середній чек" value={<>540 <span className="text-lg text-stone-400">₴</span></>} sub="+7% до вчора" subTone="good" onClick={() => onOpen(METRICS.avgcheck)} />
       </div>
 
-      <KpiMini icon={Ban} label="Неявки (No-show)" value="10.5%" sub="52% — просто забули прийти" subTone="warn" accent="text-rose-600" onClick={() => onOpen(METRICS.noshow)} />
+      <KpiMini icon={Ban} label="Неявки (No-show)" value="10.5%" sub="52% — просто забули прийти" subTone="warn" accent="text-[#7c4a21]" onClick={() => onOpen(METRICS.noshow)} />
 
       {/* Smart alerts */}
       <div>
         <div className="mb-2 flex items-center gap-2 px-1 text-[11px] font-medium uppercase tracking-wide text-stone-400">
-          <Activity className="h-3.5 w-3.5 text-amber-600" /> Розумні сповіщення
+          <Activity className="h-3.5 w-3.5 text-orange-600" /> Розумні сповіщення
         </div>
         <div className="space-y-2.5">
-          <div className="relative overflow-hidden rounded-2xl border border-rose-200 bg-rose-50 p-3.5">
-            <div className="absolute inset-y-0 left-0 w-1 bg-rose-500" />
+          <div className="relative overflow-hidden rounded-2xl border border-orange-200 bg-orange-50 p-3.5">
+            <div className="absolute inset-y-0 left-0 w-1 bg-orange-500" />
             <div className="flex gap-3 pl-1.5">
-              <Ban className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" />
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-orange-600" />
               <div>
-                <div className="text-[12px] font-semibold text-rose-700">No-show росте</div>
-                <p className="mt-1 text-[11px] leading-relaxed text-stone-600">
-                  3 неявки цього тижня без передоплати — це ≈ 1 800 ₴ простою. Увімкни в боті передоплату 100 ₴ і
-                  нагадування за 2 год: знизить неявки на ~60%.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden rounded-2xl border border-amber-200 bg-amber-50 p-3.5">
-            <div className="absolute inset-y-0 left-0 w-1 bg-amber-500" />
-            <div className="flex gap-3 pl-1.5">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
-              <div>
-                <div className="text-[12px] font-semibold text-amber-700">Вікно простою завтра</div>
+                <div className="text-[12px] font-semibold text-orange-700">Вікно простою завтра</div>
                 <p className="mt-1 text-[11px] leading-relaxed text-stone-600">
                   У Романа завтра 14:00–16:00 три вільні слоти. Дай сторіз «є місця на завтра» — інакше ≈ 1 350 ₴
                   недозаробітку.
@@ -825,12 +811,12 @@ function OverviewTab({ onOpen }) {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-3.5">
-            <div className="absolute inset-y-0 left-0 w-1 bg-slate-400" />
+          <div className="relative overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 p-3.5">
+            <div className="absolute inset-y-0 left-0 w-1 bg-stone-400" />
             <div className="flex gap-3 pl-1.5">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-stone-500" />
               <div>
-                <div className="text-[12px] font-semibold text-slate-700">Повернути «застиглих»</div>
+                <div className="text-[12px] font-semibold text-stone-700">Повернути «застиглих»</div>
                 <p className="mt-1 text-[11px] leading-relaxed text-stone-600">
                   12 клієнтів не були 6+ тижнів (зазвичай ходять раз на 3). Надішли їм через бота промо −15% на
                   найближчий тиждень.
@@ -849,16 +835,16 @@ function OverviewTab({ onOpen }) {
 // ═════════════════════════════════════════════════════════════
 
 function hourFill(v) {
-  if (v >= 90) return "bg-amber-600";
-  if (v >= 70) return "bg-amber-500";
-  if (v >= 50) return "bg-amber-400";
-  return "bg-amber-200";
+  if (v >= 90) return "bg-orange-600";
+  if (v >= 70) return "bg-orange-500";
+  if (v >= 50) return "bg-orange-400";
+  return "bg-orange-200";
 }
 
 const STATUS = {
-  done: { label: "Виконано", color: "text-emerald-600", bg: "bg-emerald-100", icon: CheckCircle2 },
-  upcoming: { label: "Попереду", color: "text-amber-600", bg: "bg-amber-100", icon: Clock },
-  noshow: { label: "Не прийшов", color: "text-rose-600", bg: "bg-rose-100", icon: Ban },
+  done: { label: "Виконано", color: "text-orange-600", bg: "bg-orange-100", icon: CheckCircle2 },
+  upcoming: { label: "Попереду", color: "text-[#8a5a2b]", bg: "bg-[#efe1cf]", icon: Clock },
+  noshow: { label: "Не прийшов", color: "text-[#7c4a21]", bg: "bg-[#f0e4d5]", icon: Ban },
 };
 
 function ScheduleTab({ onOpen }) {
@@ -872,15 +858,15 @@ function ScheduleTab({ onOpen }) {
       {/* summary */}
       <div className="grid grid-cols-3 gap-3">
         <Card className="text-center">
-          <div className="text-2xl font-bold text-emerald-600">{done}</div>
+          <div className="text-2xl font-bold text-orange-600">{done}</div>
           <div className="text-[10px] text-stone-500">виконано</div>
         </Card>
         <Card className="text-center">
-          <div className="text-2xl font-bold text-amber-600">{upcoming}</div>
+          <div className="text-2xl font-bold text-[#8a5a2b]">{upcoming}</div>
           <div className="text-[10px] text-stone-500">попереду</div>
         </Card>
         <Card className="text-center">
-          <div className="text-2xl font-bold text-rose-600">{noshow}</div>
+          <div className="text-2xl font-bold text-[#7c4a21]">{noshow}</div>
           <div className="text-[10px] text-stone-500">неявка</div>
         </Card>
       </div>
@@ -900,7 +886,7 @@ function ScheduleTab({ onOpen }) {
             </div>
           ))}
         </div>
-        <div className="mt-2 flex items-center gap-2 rounded-lg bg-amber-50 px-2.5 py-1.5 text-[10px] text-amber-700">
+        <div className="mt-2 flex items-center gap-2 rounded-lg bg-orange-50 px-2.5 py-1.5 text-[10px] text-orange-700">
           <TrendingUp className="h-3 w-3" /> Пік — 16:00–18:00. Саме тут став найсильніших майстрів.
         </div>
       </Card>
@@ -933,7 +919,7 @@ function ScheduleTab({ onOpen }) {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-[13px] font-semibold text-amber-600">{a.price} ₴</div>
+                    <div className="text-[13px] font-semibold text-orange-600">{a.price} ₴</div>
                     <ChevronRight className="ml-auto h-4 w-4 text-stone-300" />
                   </div>
                 </div>
@@ -954,13 +940,13 @@ function BarbersTab({ onOpen }) {
   const totalTips = BARBERS.reduce((a, b) => a + b.tips, 0);
   return (
     <div className="space-y-4">
-      <Card className="border-amber-200 bg-amber-50">
+      <Card className="border-orange-200 bg-orange-50">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-[11px] font-medium uppercase tracking-wide text-amber-700/70">Чайові команди сьогодні</div>
+            <div className="text-[11px] font-medium uppercase tracking-wide text-orange-700/70">Чайові команди сьогодні</div>
             <p className="mt-1 text-[11px] text-stone-500">Тапни майстра для розбору</p>
           </div>
-          <div className="flex items-center gap-1 text-2xl font-bold text-amber-600">
+          <div className="flex items-center gap-1 text-2xl font-bold text-orange-600">
             <Banknote className="h-5 w-5" /> {group(totalTips)} ₴
           </div>
         </div>
@@ -980,8 +966,8 @@ function BarbersTab({ onOpen }) {
                     <div className="text-[13px] font-semibold text-stone-900">{b.name}</div>
                     <div className="flex items-center gap-2 text-[10px] text-stone-500">
                       <span>{b.role}</span>
-                      <span className="flex items-center gap-0.5 text-amber-600">
-                        <Star className="h-2.5 w-2.5 fill-amber-500 text-amber-500" /> {b.rating}
+                      <span className="flex items-center gap-0.5 text-orange-600">
+                        <Star className="h-2.5 w-2.5 fill-orange-500 text-orange-500" /> {b.rating}
                       </span>
                     </div>
                   </div>
@@ -994,7 +980,7 @@ function BarbersTab({ onOpen }) {
               <div className="mt-3">
                 <div className="mb-1 flex items-center justify-between text-[10px]">
                   <span className="text-stone-500">Rebook (повернення клієнтів)</span>
-                  <span className={`font-semibold ${good ? "text-emerald-600" : "text-rose-600"}`}>{b.rebook}%</span>
+                  <span className={`font-semibold ${good ? "text-orange-600" : "text-[#7c4a21]"}`}>{b.rebook}%</span>
                 </div>
                 <ProgressBar value={b.rebook} danger={!good} />
               </div>
@@ -1003,8 +989,8 @@ function BarbersTab({ onOpen }) {
         })}
       </div>
 
-      <div className="rounded-2xl border border-rose-200 bg-rose-50 p-3.5 text-[11px] leading-relaxed text-stone-600">
-        <span className="font-semibold text-rose-700">Фокус тижня: </span>
+      <div className="rounded-2xl border border-[#e2cdb2] bg-[#f7f1ea] p-3.5 text-[11px] leading-relaxed text-stone-600">
+        <span className="font-semibold text-[#623915]">Фокус тижня: </span>
         У Дениса rebook лише 51% — клієнти рідко повертаються. Індивідуальне навчання завершення сеансу + запис на касі.
       </div>
     </div>
@@ -1030,7 +1016,7 @@ function ServicesTab({ onOpen }) {
               <Card key={s.name} className="p-3.5" onClick={() => onOpen(makeServiceDetail(s))}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 text-amber-600">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
                       <SIcon className="h-4 w-4" />
                     </div>
                     <div>
@@ -1044,7 +1030,7 @@ function ServicesTab({ onOpen }) {
                   </div>
                 </div>
                 <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-stone-100">
-                  <div className="h-full rounded-full bg-amber-500" style={{ width: `${(s.count / maxCount) * 100}%` }} />
+                  <div className="h-full rounded-full bg-orange-500" style={{ width: `${(s.count / maxCount) * 100}%` }} />
                 </div>
               </Card>
             );
@@ -1062,7 +1048,7 @@ function ServicesTab({ onOpen }) {
             return (
               <Card key={r.name} className="flex items-center justify-between p-3.5" onClick={() => onOpen(makeRetailDetail(r))}>
                 <div className="flex items-center gap-2.5">
-                  <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${low ? "bg-rose-100 text-rose-600" : "bg-emerald-100 text-emerald-600"}`}>
+                  <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${low ? "bg-[#f0e4d5] text-[#7c4a21]" : "bg-orange-100 text-orange-600"}`}>
                     <Droplets className="h-4 w-4" />
                   </div>
                   <div>
@@ -1073,8 +1059,8 @@ function ServicesTab({ onOpen }) {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className={`text-[13px] font-semibold ${low ? "text-rose-600" : "text-stone-900"}`}>{r.stock} шт</span>
-                  {low && <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[9px] font-medium text-rose-600">мало</span>}
+                  <span className={`text-[13px] font-semibold ${low ? "text-[#7c4a21]" : "text-stone-900"}`}>{r.stock} шт</span>
+                  {low && <span className="rounded-full bg-[#f0e4d5] px-2 py-0.5 text-[9px] font-medium text-[#7c4a21]">мало</span>}
                   <ChevronRight className="h-4 w-4 text-stone-300" />
                 </div>
               </Card>
@@ -1098,22 +1084,22 @@ export default function BarberDashboard() {
   return (
     <div className="flex min-h-[100dvh] w-full justify-center bg-stone-100 font-sans text-stone-900">
       <div className="relative flex h-[100dvh] w-full max-w-md flex-col overflow-hidden bg-stone-100">
-        <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-amber-300/30 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-48 -transtone-x-1/2 rounded-full bg-orange-300/30 blur-3xl" />
 
         <header className="relative z-10 shrink-0 border-b border-stone-200 bg-stone-50/80 px-5 pb-4 pt-5 backdrop-blur">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-serif text-[20px] font-bold tracking-tight text-stone-900">The Chair</h1>
-              <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-emerald-600">
+              <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-orange-600">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-500" />
                 </span>
                 Відкрито до 21:00
                 <span className="text-stone-400">· 2/3 крісла зайнято</span>
               </div>
             </div>
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-stone-900 text-amber-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4d2b0f] text-orange-300">
               <Scissors className="h-5 w-5" />
             </div>
           </div>
@@ -1124,7 +1110,7 @@ export default function BarberDashboard() {
                 key={p}
                 onClick={() => setPeriod(p)}
                 className={`flex-1 rounded-xl px-3 py-1.5 text-[12px] font-medium transition-all ${
-                  period === p ? "bg-stone-900 text-white shadow-sm" : "bg-white text-stone-500 hover:bg-stone-50"
+                  period === p ? "bg-[#4d2b0f] text-white shadow-sm" : "bg-white text-stone-500 hover:bg-stone-50"
                 }`}
               >
                 {p}
@@ -1150,7 +1136,7 @@ export default function BarberDashboard() {
                   key={t.id}
                   onClick={() => setTab(t.id)}
                   className={`flex flex-1 flex-col items-center gap-1 rounded-xl py-1.5 transition-all ${
-                    active ? "text-amber-600" : "text-stone-400 hover:text-stone-600"
+                    active ? "text-orange-600" : "text-stone-400 hover:text-stone-600"
                   }`}
                 >
                   <Icon className="h-5 w-5" strokeWidth={active ? 2.4 : 1.8} />
